@@ -1,0 +1,2196 @@
+# Arabic translations for Identity API
+# Register page
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-21 06:24+0300\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#: .\indentity_api\settings.py:131
+msgid "English"
+msgstr ""
+
+#: .\indentity_api\settings.py:132
+msgid "Arabic"
+msgstr ""
+
+#: .\indentity_api\settings.py:133
+msgid "French"
+msgstr ""
+
+#: .\templates\Identity_confirm_delete.html:4
+msgid "Delete Identity"
+msgstr "حذف الهوية"
+
+#: .\templates\Identity_confirm_delete.html:15
+#: .\templates\Identity_edit.html:12 .\templates\identity_create.html:12
+msgid "Back to identities"
+msgstr "العودة إلى الهويات"
+
+#: .\templates\Identity_confirm_delete.html:34
+msgid "Delete identity?"
+msgstr "هل تريد حذف الهوية؟"
+
+#: .\templates\Identity_confirm_delete.html:39
+#, python-format
+msgid ""
+"\n"
+"                You are about to permanently delete %(value)s from your "
+"%(context)s context.\n"
+"                This cannot be undone.\n"
+"                "
+msgstr ""
+
+#: .\templates\Identity_confirm_delete.html:65
+msgid "Yes, delete it"
+msgstr ""
+
+#: .\templates\Identity_confirm_delete.html:70
+#: .\templates\Identity_edit.html:93 .\templates\identity_create.html:100
+#: .\templates\settings.html:76
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: .\templates\Identity_edit.html:19
+msgid "Edit identity"
+msgstr "تعديل الهوية"
+
+#: .\templates\Identity_edit.html:20
+#, fuzzy, python-format
+#| msgid "Update %(value)s in %(context)s context"
+msgid ""
+"\n"
+"          Update %(value)s in %(context)s context\n"
+"          "
+msgstr "تحديث %(value)s في سياق %(context)s"
+
+#: .\templates\Identity_edit.html:29 .\templates\identity_create.html:27
+msgid "Name"
+msgstr "الاسم"
+
+#: .\templates\Identity_edit.html:30 .\templates\identity_create.html:28
+msgid "e.g. John Smith"
+msgstr "مثال: John Smith"
+
+#: .\templates\Identity_edit.html:36
+msgid "Context"
+msgstr "السياق"
+
+#: .\templates\Identity_edit.html:48 .\templates\identity_create.html:47
+msgid "Who can see this?"
+msgstr "من يمكنه رؤية هذا؟"
+
+#: .\templates\Identity_edit.html:53 .\templates\Identity_list.html:88
+#: .\templates\dashboard.html:87 .\templates\dashboard.html:141
+#: .\templates\identity_create.html:52 .\templates\search.html:75
+msgid "Public"
+msgstr "عام"
+
+#: .\templates\Identity_edit.html:60 .\templates\Identity_list.html:93
+#: .\templates\dashboard.html:143 .\templates\identity_create.html:59
+#: .\templates\landing.html:108 .\templates\search.html:77
+msgid "Restricted"
+msgstr "مقيّد"
+
+#: .\templates\Identity_edit.html:67 .\templates\Identity_list.html:98
+#: .\templates\dashboard.html:145 .\templates\identity_create.html:66
+#: .\templates\landing.html:133
+msgid "Private"
+msgstr "خاص"
+
+#: .\templates\Identity_edit.html:80 .\templates\identity_create.html:87
+msgid "Set as preferred"
+msgstr "تعيين كمفضل"
+
+#: .\templates\Identity_edit.html:81 .\templates\identity_create.html:88
+msgid "This name will be returned by default for this context"
+msgstr "سيتم استخدام هذا الاسم افتراضيًا لهذا السياق"
+
+#: .\templates\Identity_edit.html:92
+msgid "Save changes"
+msgstr "حفظ التغييرات"
+
+#: .\templates\Identity_list.html:4 .\templates\Identity_list.html:12
+#: .\templates\base.html:160 .\templates\base.html:289
+#: .\templates\dashboard.html:110
+msgid "My Identities"
+msgstr "هوياتي"
+
+#: .\templates\Identity_list.html:14
+msgid "Manage how you appear in different contexts"
+msgstr "حدد كيف تظهر في سياق معين"
+
+#: .\templates\Identity_list.html:22 .\templates\base.html:294
+#: .\templates\dashboard.html:28
+msgid "Add Identity"
+msgstr "إضافة هوية"
+
+#: .\templates\Identity_list.html:34 .\templates\dashboard.html:165
+msgid "No identities yet"
+msgstr "لا توجد هويات بعد"
+
+#: .\templates\Identity_list.html:37
+#, fuzzy
+#| msgid "This identity is not set to Restricted"
+msgid "Add your first identity to get started"
+msgstr "هذه الهوية ليست محدودة"
+
+#: .\templates\Identity_list.html:41
+#, fuzzy
+#| msgid "Add new identity"
+msgid "Add your first identity"
+msgstr "إضافة هوية جديدة"
+
+#: .\templates\Identity_list.html:57
+#, python-format
+msgid ""
+"\n"
+"        %(counter)s name\n"
+"        "
+msgid_plural ""
+"\n"
+"        %(counter)s names\n"
+"        "
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\templates\Identity_list.html:80 .\templates\dashboard.html:134
+#: .\templates\search.html:68
+#, fuzzy
+#| msgid "Set as preferred"
+msgid "Preferred"
+msgstr "تعيين كمفضل"
+
+#: .\templates\Identity_list.html:109 .\templates\dashboard.html:152
+#: .\templates\landing.html:111
+msgid "Access"
+msgstr "صلاحيات"
+
+#: .\templates\Identity_list.html:114 .\templates\dashboard.html:154
+msgid "Edit"
+msgstr "تعديل"
+
+#: .\templates\Identity_list.html:118 .\templates\dashboard.html:155
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr "حذف"
+
+#: .\templates\base.html:71 .\templates\base.html:299
+#: .\templates\dashboard.html:35 .\templates\search.html:28
+msgid "Search"
+msgstr "بحث"
+
+# Fix fuzzy flag for Settings
+#: .\templates\base.html:76 .\templates\base.html:304
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: .\templates\base.html:83
+msgid "Approvals"
+msgstr "الموافقات"
+
+#: .\templates\base.html:141 .\templates\base.html:284
+#: .\templates\dashboard.html:4 .\templates\manage_access.html:26
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+#: .\templates\base.html:182 .\templates\base.html:310
+#: .\templates\settings.html:105
+msgid "Sign out"
+msgstr "تسجيل الخروج"
+
+#: .\templates\base.html:196 .\templates\base.html:321
+#: .\templates\landing.html:55 .\templates\login.html:93
+#: .\templates\register.html:112
+msgid "Sign in"
+msgstr "تسجيل الدخول"
+
+#: .\templates\base.html:316
+msgid "Register"
+msgstr ""
+
+#: .\templates\dashboard.html:17
+msgid "Identity Dashboard"
+msgstr "لوحة إدارة الهوية"
+
+#: .\templates\dashboard.html:19
+msgid "Hello,"
+msgstr "مرحبًا،"
+
+#: .\templates\dashboard.html:29 .\templates\dashboard.html:118
+msgid "Add"
+msgstr ""
+
+#: .\templates\dashboard.html:50 .\templates\landing.html:68
+msgid "Identities"
+msgstr "الهويات"
+
+#: .\templates\dashboard.html:52
+msgid "across all contexts"
+msgstr "في جميع السياقات"
+
+#: .\templates\dashboard.html:65 .\templates\landing.html:63
+msgid "Contexts"
+msgstr "السياقات"
+
+#: .\templates\dashboard.html:72
+msgid "None yet"
+msgstr "لا يوجد بعد"
+
+#: .\templates\dashboard.html:89
+msgid "visible externally"
+msgstr "مرئي خارجيًا"
+
+#: .\templates\dashboard.html:113
+msgid "View all →"
+msgstr "عرض الكل →"
+
+#: .\templates\dashboard.html:166
+msgid "Create your first →"
+msgstr "أنشئ أول هوية →"
+
+#: .\templates\dashboard.html:181
+msgid "Activity"
+msgstr "النشاط"
+
+#: .\templates\dashboard.html:196
+#, fuzzy
+#| msgid "Account Settings"
+msgid "Account created"
+msgstr "إعدادات الحساب"
+
+#: .\templates\dashboard.html:197
+#, fuzzy
+#| msgid "Sign in"
+msgid "Signed in"
+msgstr "تسجيل الدخول"
+
+#: .\templates\dashboard.html:198
+#, fuzzy
+#| msgid "Sign out"
+msgid "Signed out"
+msgstr "تسجيل الخروج"
+
+#: .\templates\dashboard.html:200
+#, fuzzy
+#| msgid "Access"
+msgid "accessed"
+msgstr "صلاحيات"
+
+#: .\templates\dashboard.html:200
+#, fuzzy
+#| msgid "Edit identity"
+msgid "identity"
+msgstr "تعديل الهوية"
+
+#: .\templates\dashboard.html:200
+#, fuzzy
+#| msgid "Identity Dashboard"
+msgid "Identity accessed"
+msgstr "لوحة إدارة الهوية"
+
+#: .\templates\dashboard.html:212
+msgid "No activity yet"
+msgstr "لا يوجد نشاط بعد"
+
+#: .\templates\identity_create.html:19
+msgid "Add new identity"
+msgstr "إضافة هوية جديدة"
+
+#: .\templates\identity_create.html:20
+msgid "Define how you appear in a specific context"
+msgstr "حدد كيف تظهر في سياق معين"
+
+#: .\templates\identity_create.html:34 .\templates\identity_create.html:36
+msgid "Select a context"
+msgstr "اختر سياقًا"
+
+#: .\templates\identity_create.html:53
+msgid "Visible to everyone including all external systems"
+msgstr "مرئي للجميع بما في ذلك جميع الأنظمة الخارجية"
+
+#: .\templates\identity_create.html:60
+msgid "Only specific users or systems you approve"
+msgstr "فقط المستخدمون أو الأنظمة التي توافق عليها"
+
+#: .\templates\identity_create.html:67
+msgid "Only you can see this — never shared externally"
+msgstr "يمكنك أنت فقط رؤية هذا — لا يتم مشاركته خارجيًا أبدًا"
+
+#: .\templates\identity_create.html:74
+#, fuzzy
+#| msgid ""
+#| "After saving, go to <strong>Manage Access</strong> on this identity to "
+#| "choose which users or systems can see it."
+msgid ""
+"\n"
+"              After saving, go to <strong>Manage Access</strong> on this "
+"identity to choose which users or systems can see it.\n"
+"              "
+msgstr ""
+"بعد الحفظ، انتقل إلى <strong>إدارة الوصول</strong> لاختيار من يمكنه رؤية هذه "
+"الهوية."
+
+#: .\templates\identity_create.html:99
+msgid "Save identity"
+msgstr "حفظ الهوية"
+
+#: .\templates\landing.html:4
+msgid "Identity API — Own Your Identity"
+msgstr "واجهة الهوية — امتلك هويتك"
+
+#: .\templates\landing.html:29
+msgid "Identity Management System"
+msgstr "نظام إدارة الهوية"
+
+#: .\templates\landing.html:38
+msgid "One person."
+msgstr "شخص واحد."
+
+#: .\templates\landing.html:39
+msgid "Many identities."
+msgstr "هويات متعددة."
+
+#: .\templates\landing.html:40
+msgid "Total control."
+msgstr "تحكم كامل."
+
+#: .\templates\landing.html:44
+msgid ""
+"Manage how you appear across academic, professional, and social contexts. "
+"Share only what matters — with exactly who you choose."
+msgstr ""
+"أدر كيف تظهر عبر السياقات الأكاديمية والمهنية والاجتماعية. شارك فقط ما يهم — "
+"مع من تختار بالضبط."
+
+#: .\templates\landing.html:49
+msgid "Get started free"
+msgstr "ابدأ مجانًا"
+
+#: .\templates\landing.html:73
+msgid "Your control"
+msgstr "تحكمك"
+
+#: .\templates\landing.html:92
+msgid "Identity API"
+msgstr "واجهة الهوية"
+
+#: .\templates\landing.html:93
+msgid "Professional Context"
+msgstr "السياق المهني"
+
+#: .\templates\landing.html:102
+msgid "Preferred Name"
+msgstr "الاسم المفضل"
+
+#: .\templates\landing.html:107
+msgid "Visibility"
+msgstr "الرؤية"
+
+#: .\templates\landing.html:112
+msgid "2 systems"
+msgstr "نظامان"
+
+#: .\templates\landing.html:121 .\templates\search.html:24
+msgid "Academic"
+msgstr "أكاديمي"
+
+#: .\templates\landing.html:127 .\templates\search.html:23
+msgid "Social"
+msgstr "اجتماعي"
+
+#: .\templates\landing.html:149
+msgid "How it works"
+msgstr "كيف يعمل"
+
+#: .\templates\landing.html:150
+msgid "Simple. Private. Yours."
+msgstr "بسيط. خاص. ملكك."
+
+#: .\templates\landing.html:162
+msgid "Create identities"
+msgstr "إنشاء هويات"
+
+#: .\templates\landing.html:163
+msgid ""
+"Add names for each context — academic, professional, social. Set one as "
+"preferred per context."
+msgstr ""
+"أضف أسماء لكل سياق — أكاديمي، مهني، اجتماعي. اختر واحدًا كمفضل لكل سياق."
+
+#: .\templates\landing.html:173
+msgid "Control access"
+msgstr "التحكم في الوصول"
+
+#: .\templates\landing.html:174
+msgid ""
+"Set each identity to public, restricted, or private. Grant specific users or "
+"systems access to restricted ones."
+msgstr ""
+"حدد كل هوية كعامة أو مقيدة أو خاصة. امنح مستخدمين أو أنظمة محددة وصولاً إلى "
+"الهويات المقيدة."
+
+#: .\templates\landing.html:184
+msgid "Share securely"
+msgstr "المشاركة بأمان"
+
+#: .\templates\landing.html:185
+msgid ""
+"External systems query via API using your identifier. They only see what "
+"you've explicitly allowed."
+msgstr ""
+"تستعلم الأنظمة الخارجية عبر واجهة البرمجة باستخدام معرفك. ترى فقط ما سمحت به "
+"صراحة."
+
+#: .\templates\landing.html:197
+msgid "Features"
+msgstr "الميزات"
+
+#: .\templates\landing.html:198
+msgid "Everything you need"
+msgstr "كل ما تحتاجه"
+
+#: .\templates\landing.html:212
+msgid "Multiple identities"
+msgstr "هويات متعددة"
+
+#: .\templates\landing.html:213
+msgid "Different names for different contexts — all under one account."
+msgstr "أسماء مختلفة لسياقات مختلفة — كلها تحت حساب واحد."
+
+#: .\templates\landing.html:222
+msgid "API key access"
+msgstr "الوصول عبر مفتاح واجهة البرمجة"
+
+#: .\templates\landing.html:223
+msgid ""
+"External systems authenticate with API keys and query your data securely."
+msgstr ""
+"تتحقق الأنظمة الخارجية من هويتها باستخدام مفاتيح واجهة البرمجة وتستعلم "
+"بياناتك بأمان."
+
+#: .\templates\landing.html:232
+msgid "Granular privacy"
+msgstr "خصوصية دقيقة"
+
+#: .\templates\landing.html:233
+msgid "Public, restricted, or private — per identity, not per account."
+msgstr "عام، مقيد، أو خاص — لكل هوية، وليس لكل حساب."
+
+#: .\templates\landing.html:242
+msgid "Full audit log"
+msgstr "سجل تدقيق كامل"
+
+#: .\templates\landing.html:243
+msgid "See every login, identity access, and change — with timestamps and IPs."
+msgstr ""
+"اطلع على كل عملية تسجيل دخول والوصول إلى الهوية والتغييرات — مع الطوابع "
+"الزمنية وعناوين IP."
+
+#: .\templates\landing.html:252
+msgid "GitHub OAuth"
+msgstr "GitHub OAuth"
+
+#: .\templates\landing.html:253
+msgid "Sign in with GitHub — your account, your way."
+msgstr "سجّل الدخول باستخدام GitHub — حسابك، بطريقتك."
+
+#: .\templates\landing.html:262
+msgid "Multilingual"
+msgstr "متعدد اللغات"
+
+#: .\templates\landing.html:263
+msgid "Full support for English, Arabic, and French interfaces."
+msgstr "دعم كامل للواجهات الإنجليزية والعربية والفرنسية."
+
+#: .\templates\landing.html:282
+msgid "Ready to own your identity?"
+msgstr "هل أنت مستعد لامتلاك هويتك؟"
+
+#: .\templates\landing.html:285
+msgid ""
+"Create your account in seconds. No credit card. No setup. Just your identity "
+"— exactly how you want it."
+msgstr ""
+"أنشئ حسابك في ثوانٍ. لا حاجة لبطاقة ائتمان. لا إعداد. فقط هويتك — بالطريقة "
+"التي تريدها بالضبط."
+
+#: .\templates\landing.html:290
+msgid "Create free account"
+msgstr "إنشاء حساب مجاني"
+
+#: .\templates\landing.html:296
+msgid "Register a system"
+msgstr "تسجيل نظام"
+
+#: .\templates\landing.html:304
+msgid "No credit card required"
+msgstr "لا حاجة لبطاقة ائتمان"
+
+#: .\templates\landing.html:308
+msgid "Admin-approved access"
+msgstr "وصول معتمد من المسؤول"
+
+#: .\templates\landing.html:312
+msgid "Full audit logging"
+msgstr "تسجيل تدقيق كامل"
+
+#: .\templates\login.html:33
+msgid "Welcome back"
+msgstr "مرحبًا بعودتك"
+
+#: .\templates\login.html:35
+msgid "Sign in to manage your identities"
+msgstr "تسجيل الدخول لإدارة هوياتك"
+
+# Form labels
+#: .\templates\login.html:46 .\templates\register.html:39
+#: .\templates\settings.html:31
+msgid "Username"
+msgstr "اسم المستخدم"
+
+# Placeholders
+#: .\templates\login.html:51
+#, fuzzy
+#| msgid "Choose a username"
+msgid "Enter your username"
+msgstr "اختر اسم مستخدم"
+
+#: .\templates\login.html:64 .\templates\register.html:69
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: .\templates\login.html:100 .\templates\register.html:98
+#: .\venv\Lib\site-packages\django\utils\text.py:287
+msgid "or"
+msgstr "أو"
+
+#: .\templates\login.html:123 .\templates\register.html:107
+msgid "Continue with GitHub"
+msgstr "المتابعة مع GitHub"
+
+#: .\templates\login.html:128
+msgid "Don't have an account?"
+msgstr "ليس لديك حساب؟"
+
+#: .\templates\login.html:132
+#, fuzzy
+#| msgid "Create one"
+msgid "Create one"
+msgstr "إنشئ حسابًا"
+
+#: .\templates\manage_access.html:4
+msgid "Manage Access"
+msgstr "إدارة الوصول"
+
+#: .\templates\manage_access.html:28
+msgid "Access Control"
+msgstr "التحكم في الوصول"
+
+#: .\templates\manage_access.html:32
+#, fuzzy
+#| msgid "Add Identity"
+msgid "Identity"
+msgstr "إضافة هوية"
+
+#: .\templates\manage_access.html:39
+msgid "Back"
+msgstr "رجوع"
+
+#: .\templates\manage_access.html:51
+msgid "This identity is not set to Restricted"
+msgstr "هذه الهوية ليست محدودة"
+
+#: .\templates\manage_access.html:54
+#, python-format
+msgid ""
+"\n"
+"          Access grants only apply to <strong>Restricted</strong> "
+"identities. Change the visibility on the <a href=\"%(url)s\" "
+"class=\"underline\">edit page</a>.\n"
+"        "
+msgstr ""
+
+#: .\templates\manage_access.html:75 .\templates\manage_access.html:126
+msgid "Grant Access"
+msgstr "منح الوصول"
+
+#: .\templates\manage_access.html:81
+msgid "Grant access to"
+msgstr "منح الوصول لـ"
+
+#: .\templates\manage_access.html:85
+msgid "A user"
+msgstr "مستخدم"
+
+#: .\templates\manage_access.html:89
+msgid "An external system"
+msgstr "نظام خارجي"
+
+#: .\templates\manage_access.html:96
+msgid "Select user"
+msgstr "اختر مستخدمًا"
+
+#: .\templates\manage_access.html:98
+msgid "choose a user"
+msgstr "اختر مستخدمًا"
+
+#: .\templates\manage_access.html:108
+msgid "Select external system"
+msgstr "اختر نظامًا خارجيًا"
+
+#: .\templates\manage_access.html:110
+#, fuzzy
+#| msgid "— choose a system —"
+msgid "choose a system"
+msgstr "— اختر نظامًا —"
+
+#: .\templates\manage_access.html:117
+msgid "Your ID in this system"
+msgstr "معرفك في هذا النظام"
+
+#: .\templates\manage_access.html:119
+msgid "e.g. STU-123456, EMP-789"
+msgstr "مثال: STU-123456, EMP-789"
+
+#: .\templates\manage_access.html:121
+msgid "The ID this system uses to identify you"
+msgstr "المعرف الذي يستخدمه هذا النظام لتحديد هويتك"
+
+#: .\templates\manage_access.html:136
+msgid "Who Has Access"
+msgstr "من لديه وصول"
+
+#: .\templates\manage_access.html:139
+#, python-format
+msgid "%(counter)s grant"
+msgid_plural "%(counter)s grants"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\templates\manage_access.html:154
+msgid "User"
+msgstr "مستخدم"
+
+#: .\templates\manage_access.html:162
+msgid "External System"
+msgstr "نظام خارجي"
+
+#: .\templates\manage_access.html:171
+msgid "Revoke"
+msgstr "إلغاء الوصول"
+
+#: .\templates\manage_access.html:185
+msgid "No access grants yet"
+msgstr "لا توجد أذونات وصول بعد"
+
+#: .\templates\manage_access.html:186
+msgid "Use the form above to grant access"
+msgstr "استخدم النموذج أعلاه لمنح الوصول"
+
+# Page title
+#: .\templates\register.html:4
+msgid "Create Account"
+msgstr "إنشاء حساب"
+
+# Header
+#: .\templates\register.html:29
+msgid "Create your account"
+msgstr "أنشئ حسابك"
+
+#: .\templates\register.html:30
+msgid "Manage your identity across all contexts"
+msgstr "أدر هويتك عبر جميع السياقات"
+
+# Placeholders
+#: .\templates\register.html:41
+msgid "Choose a username"
+msgstr "اختر اسم مستخدم"
+
+#: .\templates\register.html:48
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1920
+msgid "Email address"
+msgstr "البريد الإلكتروني"
+
+#: .\templates\register.html:58
+msgid "Display name"
+msgstr "الاسم المعروض"
+
+#: .\templates\register.html:58
+msgid "(optional)"
+msgstr "(اختياري)"
+
+#: .\templates\register.html:61
+msgid "Your preferred display name"
+msgstr "اسمك المفضل للعرض"
+
+#: .\templates\register.html:76
+msgid "Confirm"
+msgstr "تأكيد"
+
+# Buttons
+#: .\templates\register.html:91
+msgid "Create account"
+msgstr "إنشاء الحساب"
+
+# Footer
+#: .\templates\register.html:111
+msgid "Already have an account?"
+msgstr "هل لديك حساب بالفعل؟"
+
+#: .\templates\search.html:3 .\templates\search.html:10
+msgid "Search Identities"
+msgstr "البحث عن الهويات"
+
+#: .\templates\search.html:11
+msgid "Search across public and restricted identities only"
+msgstr "البحث في الهويات العامة والمقيدة فقط"
+
+#: .\templates\search.html:18
+msgid "Search by name..."
+msgstr "ابحث بالاسم..."
+
+#: .\templates\search.html:22
+msgid "All contexts"
+msgstr "كل السياقات"
+
+#: .\templates\search.html:25
+msgid "Professional"
+msgstr "مهني"
+
+#: .\templates\search.html:35
+msgid "Private identities are never shown in search results"
+msgstr "لا يتم عرض الهويات الخاصة أبدًا في نتائج البحث"
+
+#: .\templates\search.html:45
+#, python-format
+msgid ""
+"\n"
+"              %(count)s result%(count|pluralize)s for \"%(query)s\" in "
+"\"%(context)s\"\n"
+"            "
+msgstr ""
+
+#: .\templates\search.html:49
+#, python-format
+msgid ""
+"\n"
+"              %(count)s result%(count|pluralize)s for \"%(query)s\"\n"
+"            "
+msgstr ""
+
+#: .\templates\search.html:85
+msgid "Yours"
+msgstr "لك"
+
+#: .\templates\search.html:98
+msgid "No results found"
+msgstr "لم يتم العثور على نتائج"
+
+#: .\templates\search.html:99
+#, python-format
+msgid "No identities match \"%(query)s\""
+msgstr "لا توجد هويات تطابق \"%(query)s\""
+
+#: .\templates\search.html:110
+msgid "Search identities"
+msgstr "البحث عن الهويات"
+
+#: .\templates\search.html:111
+msgid ""
+"Enter a name above to search across all public and restricted identities"
+msgstr "أدخل اسمًا أعلاه للبحث في جميع الهويات العامة والمقيدة"
+
+#: .\templates\settings.html:3 .\templates\settings.html:11
+msgid "Account Settings"
+msgstr "إعدادات الحساب"
+
+#: .\templates\settings.html:12
+msgid "Manage your profile and preferences"
+msgstr "إدارة ملفك الشخصي وتفضيلاتك"
+
+#: .\templates\settings.html:15
+msgid "Edit Profile"
+msgstr "تعديل الملف الشخصي"
+
+#: .\templates\settings.html:25
+msgid "Profile Information"
+msgstr "معلومات الملف الشخصي"
+
+#: .\templates\settings.html:37
+msgid "Legal Name"
+msgstr "الاسم القانوني"
+
+#: .\templates\settings.html:43
+msgid "Email"
+msgstr ""
+
+#: .\templates\settings.html:49
+msgid "Gender"
+msgstr "الجنس"
+
+#: .\templates\settings.html:55
+msgid "Date of Birth"
+msgstr "تاريخ الميلاد"
+
+#: .\templates\settings.html:61
+msgid "Role"
+msgstr "الدور"
+
+#: .\templates\settings.html:75
+msgid "Save Changes"
+msgstr "حفظ التغييرات"
+
+#: .\templates\settings.html:84
+msgid "Appearance"
+msgstr "المظهر"
+
+#: .\templates\settings.html:88
+msgid "Theme"
+msgstr "السمة"
+
+#: .\templates\settings.html:89
+msgid "Switch between light and dark mode"
+msgstr "التبديل بين الوضع الفاتح والوضع الداكن"
+
+#: .\templates\settings.html:93
+msgid "Dark mode"
+msgstr "الوضع الداكن"
+
+#: .\templates\settings.html:101
+msgid "Danger Zone"
+msgstr "منطقة الخطر"
+
+#: .\templates\settings.html:106
+msgid "End your current session securely"
+msgstr "إنهاء جلستك الحالية بأمان"
+
+#: .\templates\settings.html:108
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\templates\settings.html:137
+msgid "Light mode"
+msgstr "الوضع الفاتح"
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
+msgid "Messages"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:32
+msgid "That page number is not an integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:33
+msgid "That page number is less than 1"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:34
+msgid "That page contains no results"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:70
+msgid "Enter a valid domain name."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:153
+#: .\venv\Lib\site-packages\django\forms\fields.py:775
+msgid "Enter a valid URL."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:200
+msgid "Enter a valid integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:211
+#, fuzzy
+#| msgid "Email address"
+msgid "Enter a valid email address."
+msgstr "البريد الإلكتروني"
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\venv\Lib\site-packages\django\core\validators.py:289
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:297
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:309
+#: .\venv\Lib\site-packages\django\core\validators.py:318
+#: .\venv\Lib\site-packages\django\core\validators.py:332
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2220
+#, python-format
+msgid "Enter a valid %(protocol)s address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:311
+msgid "IPv4"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:320
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:43
+msgid "IPv6"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:334
+msgid "IPv4 or IPv6"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:375
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:381
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:416
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:425
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:434
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:441
+#, python-format
+msgid ""
+"Ensure this value is a multiple of step size %(limit_value)s, starting from "
+"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:473
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:491
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:514
+#: .\venv\Lib\site-packages\django\forms\fields.py:366
+#: .\venv\Lib\site-packages\django\forms\fields.py:405
+msgid "Enter a number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:516
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:521
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:526
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:597
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:659
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1600
+#: .\venv\Lib\site-packages\django\forms\models.py:908
+msgid "and"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1602
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:22
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:134
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+msgid "This field cannot be null."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:136
+msgid "This field cannot be blank."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:137
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:141
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:180
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1162
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1163
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1165
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1215
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1217
+msgid "String (unlimited)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1326
+msgid "Comma-separated integers"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1427
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1431
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1566
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1435
+msgid "Date (without time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1562
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1570
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1575
+msgid "Date (with time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1702
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1704
+msgid "Decimal number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1864
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
+"uuuuuu] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1868
+msgid "Duration"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1945
+msgid "File path"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2023
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2025
+msgid "Floating point number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2065
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2067
+msgid "Integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2163
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2180
+msgid "Small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2188
+#, fuzzy
+#| msgid "Email address"
+msgid "IPv4 address"
+msgstr "البريد الإلكتروني"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2219
+#, fuzzy
+#| msgid "Email address"
+msgid "IP address"
+msgstr "البريد الإلكتروني"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2310
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2311
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2313
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2364
+msgid "Positive big integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2379
+msgid "Positive integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2394
+msgid "Positive small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2410
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2446
+msgid "Text"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2526
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2530
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2534
+msgid "Time"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2642
+msgid "URL"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2666
+msgid "Raw binary data"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2731
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2733
+msgid "Universally unique identifier"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:244
+msgid "File"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:420
+msgid "Image"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:24
+msgid "A JSON object"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "Value must be valid JSON."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:979
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:982
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1276
+msgid "One-to-one relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1333
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1335
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1383
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: .\venv\Lib\site-packages\django\forms\boundfield.py:185
+msgid ":?.!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:95
+msgid "This field is required."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:315
+msgid "Enter a whole number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:486
+#: .\venv\Lib\site-packages\django\forms\fields.py:1267
+msgid "Enter a valid date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:509
+#: .\venv\Lib\site-packages\django\forms\fields.py:1268
+msgid "Enter a valid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:536
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:570
+msgid "Enter a valid duration."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:571
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:640
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:641
+msgid "No file was submitted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:642
+msgid "The submitted file is empty."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:644
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:649
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:717
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:889
+#: .\venv\Lib\site-packages\django\forms\fields.py:975
+#: .\venv\Lib\site-packages\django\forms\models.py:1592
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:977
+#: .\venv\Lib\site-packages\django\forms\fields.py:1096
+#: .\venv\Lib\site-packages\django\forms\models.py:1590
+msgid "Enter a list of values."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1097
+msgid "Enter a complete value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1339
+msgid "Enter a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1369
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: .\venv\Lib\site-packages\django\forms\forms.py:97
+msgid ":"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\forms.py:239
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:61
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:65
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:70
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:484
+#: .\venv\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:901
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:906
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:913
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:922
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1359
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1450
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1594
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\utils.py:229
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:527
+msgid "Clear"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:528
+msgid "Currently"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:529
+msgid "Change"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:866
+msgid "Unknown"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:867
+msgid "Yes"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:868
+msgid "No"
+msgstr ""
+
+#. Translators: Please do not add spaces around commas.
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:873
+msgid "yes,no,maybe"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:903
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:920
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:922
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:924
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:926
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:928
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:930
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "p.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:75
+msgid "a.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "PM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:81
+msgid "AM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:153
+msgid "midnight"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:155
+msgid "noon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:20
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:76
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:306
+#: .\venv\Lib\site-packages\django\utils\timesince.py:135
+msgid ", "
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:29
+msgid "Forbidden"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:30
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:34
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:40
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:45
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:54
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:60
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:66
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:353
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:384
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:680
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:720
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:173
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:49
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:51
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:68
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:8
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:204
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:208
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
+msgid "Django Documentation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:218
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:226
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:227
+msgid "Get started with Django"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:235
+msgid "Django Community"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+# Placeholders
+#, fuzzy
+#~| msgid "Choose a username"
+#~ msgid "choose"
+#~ msgstr "اختر"
+
+#, fuzzy, python-format
+#~| msgid "Access for %(value)s"
+#~ msgid "Access for %(name.value)s"
+#~ msgstr "الوصول لـ %(value)s"
+
+#~ msgid "Edit Identity"
+#~ msgstr "تعديل الهوية"
+
+#~ msgid "Only you can see this"
+#~ msgstr "يمكنك أنت فقط رؤية هذا"
+
+#~ msgid "edit page"
+#~ msgstr "صفحة التعديل"
+
+#~ msgid "for these settings to take effect."
+#~ msgstr "لتصبح هذه الإعدادات فعّالة."
+
+#~ msgid "since %(date)s"
+#~ msgstr "منذ %(date)s"
+
+#~ msgid "result"
+#~ msgstr "نتيجة"
+
+#~ msgid "results"
+#~ msgstr "نتائج"

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Add Identity{% endblock %}
+
+{% block content %}
+<div class="max-w-lg mx-auto py-10">
+
+  <a href="{% url 'identity_list' %}" class="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-6 transition">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+    </svg>
+    {% trans "Back to identities" %}
+  </a>
+
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl dark:shadow-none dark:border dark:border-slate-700 overflow-hidden">
+    <div class="h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+    <div class="p-8">
+      <div class="mb-8">
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{% trans "Add new identity" %}</h1>
+        <p class="text-sm text-gray-500 dark:text-slate-400 mt-1">{% trans "Define how you appear in a specific context" %}</p>
+      </div>
+
+      <form method="post" class="space-y-5">
+        {% csrf_token %}
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">{% trans "Name" %}</label>
+          <input type="text" name="value" value="{{ form.value.value|default:'' }}" placeholder="{% trans 'e.g. John Smith' %}"
+            class="w-full px-4 py-2.5 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"/>
+          {% if form.value.errors %}<p class="text-red-500 text-xs mt-1">{{ form.value.errors|striptags }}</p>{% endif %}
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">{% trans "Select a context" %}</label>
+          <select name="context" class="w-full px-4 py-2.5 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+            <option value="">{% trans "Select a context" %}</option>
+            {% for value, label in form.context.field.choices %}
+            {% if value %}
+            <option value="{{ value }}" {% if form.context.value == value %}selected{% endif %}>{{ label }}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+          {% if form.context.errors %}<p class="text-red-500 text-xs mt-1">{{ form.context.errors|striptags }}</p>{% endif %}
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">{% trans "Who can see this?" %}</label>
+          <div class="space-y-2">
+            <label class="flex items-start gap-3 p-3.5 rounded-lg border border-slate-200 dark:border-slate-600 hover:border-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 cursor-pointer transition">
+              <input type="radio" name="visibility" value="public" class="mt-0.5 accent-blue-600" {% if form.visibility.value == 'public' or not form.visibility.value %}checked{% endif %} onchange="handleVisibilityChange(this)">
+              <div>
+                <p class="text-sm font-medium text-slate-800 dark:text-white">🌍 {% trans "Public" %}</p>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{% trans "Visible to everyone including all external systems" %}</p>
+              </div>
+            </label>
+            <label class="flex items-start gap-3 p-3.5 rounded-lg border border-slate-200 dark:border-slate-600 hover:border-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/20 cursor-pointer transition">
+              <input type="radio" name="visibility" value="restricted" class="mt-0.5 accent-amber-500" {% if form.visibility.value == 'restricted' %}checked{% endif %} onchange="handleVisibilityChange(this)">
+              <div>
+                <p class="text-sm font-medium text-slate-800 dark:text-white">🔒 {% trans "Restricted" %}</p>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{% trans "Only specific users or systems you approve" %}</p>
+              </div>
+            </label>
+            <label class="flex items-start gap-3 p-3.5 rounded-lg border border-slate-200 dark:border-slate-600 hover:border-slate-300 cursor-pointer transition">
+              <input type="radio" name="visibility" value="private" class="mt-0.5 accent-slate-500" {% if form.visibility.value == 'private' %}checked{% endif %} onchange="handleVisibilityChange(this)">
+              <div>
+                <p class="text-sm font-medium text-slate-800 dark:text-white">👁 {% trans "Private" %}</p>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{% trans "Only you can see this — never shared externally" %}</p>
+              </div>
+            </label>
+          </div>
+
+          <div id="restricted_notice" class="hidden mt-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg px-4 py-3 flex items-start gap-2">
+            <span class="text-base mt-0.5">💡</span>
+            <p class="text-xs text-amber-700 dark:text-amber-400">{% blocktrans %}
+              After saving, go to <strong>Manage Access</strong> on this identity to choose which users or systems can see it.
+              {% endblocktrans %}</p>
+          </div>
+
+          {% if form.visibility.errors %}<p class="text-red-500 text-xs mt-1">{{ form.visibility.errors|striptags }}</p>{% endif %}
+        </div>
+
+        <div class="flex items-center gap-3 bg-gray-50 dark:bg-slate-700 rounded-lg px-4 py-3">
+          <input type="checkbox" name="is_preferred" id="is_preferred"
+            class="rounded border-gray-300 dark:border-slate-500 text-blue-600 focus:ring-blue-500"
+            {% if form.is_preferred.value %}checked{% endif %}/>
+          <div>
+            <label for="is_preferred" class="text-sm font-medium text-gray-700 dark:text-slate-300 cursor-pointer"> {% trans "Set as preferred" %}</label>
+            <p class="text-xs text-gray-400 dark:text-slate-500">{% trans "This name will be returned by default for this context" %}</p>
+          </div>
+        </div>
+
+        {% if form.non_field_errors %}
+        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg px-4 py-3">
+          <p class="text-red-600 dark:text-red-400 text-sm">{{ form.non_field_errors|striptags }}</p>
+        </div>
+        {% endif %}
+
+        <div class="flex gap-3 pt-2">
+          <button type="submit" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition text-sm">{% trans "Save identity" %}</button>
+          <a href="{% url 'identity_list' %}" class="flex-1 text-center border border-gray-300 dark:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-700 dark:text-slate-300 font-semibold py-2.5 px-4 rounded-lg transition text-sm">{% trans "Cancel" %}</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  function handleVisibilityChange(radio) {
+    const notice = document.getElementById('restricted_notice');
+    notice.classList.toggle('hidden', radio.value !== 'restricted');
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const checked = document.querySelector('input[name="visibility"]:checked');
+    if (checked && checked.value === 'restricted') {
+      document.getElementById('restricted_notice').classList.remove('hidden');
+    }
+  });
+</script>
+
+{% endblock %}

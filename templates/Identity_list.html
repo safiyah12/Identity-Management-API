@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "My Identities" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto py-10">
+
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-8">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-900 dark:text-white">{% trans "My Identities" %}</h1>
+      <p class="text-sm text-gray-500 dark:text-slate-400 mt-1">
+        {% trans "Manage how you appear in different contexts" %}
+      </p>
+    </div>
+
+    <a href="{% url 'identity_create' %}" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition flex items-center gap-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+      </svg>
+      {% trans "Add Identity" %}
+    </a>
+  </div>
+
+  {% if not grouped %}
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 p-12 text-center">
+    <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-full mb-4">
+      <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+      </svg>
+    </div>
+
+    <h3 class="text-gray-700 dark:text-white font-semibold text-lg">{% trans "No identities yet" %}</h3>
+
+    <p class="text-gray-400 dark:text-slate-500 text-sm mt-1 mb-6">
+      {% trans "Add your first identity to get started" %}
+    </p>
+
+    <a href="{% url 'identity_create' %}" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition">
+      {% trans "Add your first identity" %}
+    </a>
+  </div>
+  {% endif %}
+
+  {% for context, names in grouped.items %}
+  <div class="mb-8">
+
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-slate-500">
+        {{ context }}
+      </span>
+
+      <div class="flex-grow h-px bg-gray-200 dark:bg-slate-700"></div>
+
+      <span class="text-xs text-gray-400 dark:text-slate-500">
+        {% blocktrans count counter=names|length %}
+        {{ counter }} name
+        {% plural %}
+        {{ counter }} names
+        {% endblocktrans %}
+      </span>
+    </div>
+
+    <div class="space-y-3">
+      {% for name in names %}
+      <div class="bg-white dark:bg-slate-800 rounded-xl border border-gray-100 dark:border-slate-700 px-5 py-4 flex items-center justify-between hover:shadow-md dark:hover:bg-slate-700/50 transition group">
+
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-300 font-bold text-sm">
+            {{ name.value|first|upper }}
+          </div>
+
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-gray-800 dark:text-white">{{ name.value }}</span>
+
+              {% if name.is_preferred %}
+              <span class="text-xs bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 px-2 py-0.5 rounded-full font-medium">
+                {% trans "Preferred" %}
+              </span>
+              {% endif %}
+            </div>
+
+            <div class="flex items-center gap-2 mt-1">
+              {% if name.visibility == "public" %}
+              <span class="text-xs bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded-full">
+                {% trans "Public" %}
+              </span>
+
+              {% elif name.visibility == "restricted" %}
+              <span class="text-xs bg-yellow-50 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 px-2 py-0.5 rounded-full">
+                {% trans "Restricted" %}
+              </span>
+
+              {% else %}
+              <span class="text-xs bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-slate-400 px-2 py-0.5 rounded-full">
+                {% trans "Private" %}
+              </span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition">
+
+          {% if name.visibility == "restricted" %}
+          <a href="{% url 'manage_access' name.name_id %}" class="text-xs text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 px-2.5 py-1 rounded-md hover:bg-violet-50 dark:hover:bg-violet-900/20 transition">
+            {% trans "Access" %}
+          </a>
+          {% endif %}
+
+          <a href="{% url 'identity_edit' name.name_id %}" class="text-xs text-gray-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 border border-gray-200 dark:border-slate-600 hover:border-blue-300 px-3 py-1.5 rounded-lg transition">
+            {% trans "Edit" %}
+          </a>
+
+          <a href="{% url 'identity_delete' name.name_id %}" class="text-xs text-gray-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 border border-gray-200 dark:border-slate-600 hover:border-red-300 px-3 py-1.5 rounded-lg transition">
+            {% trans "Delete" %}
+          </a>
+
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+{% endblock %}

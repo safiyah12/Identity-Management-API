@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register External System — Identity API</title>
+    <script>
+      if (localStorage.getItem("client_theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: "class" };
+    </script>
+  </head>
+
+  <body
+    class="bg-slate-50 dark:bg-slate-900 min-h-screen flex items-center justify-center py-12 px-4 transition-colors duration-200"
+  >
+    <div class="w-full max-w-lg">
+      <!-- Header -->
+      <div class="text-center mb-8">
+        <div
+          class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+            />
+          </svg>
+        </div>
+        <h1 class="text-2xl font-bold text-slate-800 dark:text-white">
+          Register your system
+        </h1>
+        <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">
+          Submit your details for admin review and approval
+        </p>
+      </div>
+
+      {% if success %}
+      <!-- Success state -->
+      <div
+        class="bg-white dark:bg-slate-800 rounded-xl border border-green-200 dark:border-green-800 p-8 text-center"
+      >
+        <div
+          class="w-14 h-14 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-7 h-7 text-green-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </div>
+        <h2 class="text-lg font-semibold text-slate-800 dark:text-white mb-2">
+          Application submitted
+        </h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">
+          Your registration is pending admin approval. You'll be able to log in
+          once approved.
+        </p>
+        <a
+          href="{% url 'client_login' %}"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-6 py-2.5 rounded-lg transition"
+        >
+          Go to Login
+        </a>
+      </div>
+
+      {% else %}
+      <!-- Registration form -->
+      <div
+        class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 overflow-hidden"
+      >
+        <div class="h-1 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+        <div class="p-8">
+          <form method="post" class="space-y-5">
+            {% csrf_token %}
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="col-span-2">
+                <label
+                  class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1.5"
+                  >System Name</label
+                >
+                <input
+                  type="text"
+                  name="name"
+                  value="{{ form.name.value|default:'' }}"
+                  placeholder="e.g. University of London"
+                  class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition placeholder:text-slate-400 dark:placeholder:text-slate-500"
+                />
+                {% if form.name.errors %}
+                <p class="text-red-500 text-xs mt-1">
+                  {{ form.name.errors|striptags }}
+                </p>
+                {% endif %}
+              </div>
+
+              <div class="col-span-2">
+                <label
+                  class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1.5"
+                  >Contact Email</label
+                >
+                <input
+                  type="email"
+                  name="contact_email"
+                  value="{{ form.contact_email.value|default:'' }}"
+                  placeholder="admin@yoursystem.com"
+                  class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition placeholder:text-slate-400 dark:placeholder:text-slate-500"
+                />
+                {% if form.contact_email.errors %}
+                <p class="text-red-500 text-xs mt-1">
+                  {{ form.contact_email.errors|striptags }}
+                </p>
+                {% endif %}
+              </div>
+
+              <div class="col-span-2">
+                <label
+                  class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1.5"
+                  >System Type</label
+                >
+                <select
+                  name="client_type"
+                  class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                >
+                  {% for value, label in form.client_type.field.choices %}
+                  <option
+                    value="{{ value }}"
+                    {%
+                    if
+                    form.client_type.value=""
+                    ="value"
+                    %}selected{%
+                    endif
+                    %}
+                  >
+                    {{ label }}
+                  </option>
+                  {% endfor %}
+                </select>
+                {% if form.client_type.errors %}
+                <p class="text-red-500 text-xs mt-1">
+                  {{ form.client_type.errors|striptags }}
+                </p>
+                {% endif %}
+              </div>
+
+              <div class="col-span-2">
+                <label
+                  class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-1.5"
+                >
+                  Description
+                  <span
+                    class="text-slate-300 dark:text-slate-600 font-normal normal-case"
+                    >(optional)</span
+                  >
+                </label>
+                <textarea
+                  name="description"
+                  rows="3"
+                  placeholder="Briefly describe your system and why you need access..."
+                  class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none placeholder:text-slate-400 dark:placeholder:text-slate-500"
+                >
+{{ form.description.value|default:'' }}</textarea
+                >
+                {% if form.description.errors %}
+                <p class="text-red-500 text-xs mt-1">
+                  {{ form.description.errors|striptags }}
+                </p>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- Notice -->
+            <div
+              class="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-lg px-4 py-3 flex items-start gap-2"
+            >
+              <svg
+                class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <p class="text-xs text-blue-600 dark:text-blue-400">
+                Your registration will be reviewed by an admin. An API key will
+                be generated automatically upon approval.
+              </p>
+            </div>
+
+            {% if form.non_field_errors %}
+            <div
+              class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg px-4 py-3"
+            >
+              <p class="text-red-600 dark:text-red-400 text-sm">
+                {{ form.non_field_errors|striptags }}
+              </p>
+            </div>
+            {% endif %}
+
+            <button
+              type="submit"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-lg transition text-sm"
+            >
+              Submit for Approval
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <p class="text-center text-sm text-slate-400 dark:text-slate-500 mt-5">
+        Already registered?
+        <a href="{% url 'client_login' %}" class="text-blue-500 hover:underline"
+          >Sign in</a
+        >
+      </p>
+      {% endif %}
+    </div>
+  </body>
+</html>

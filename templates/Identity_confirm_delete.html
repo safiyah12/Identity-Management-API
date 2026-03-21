@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Delete Identity" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto py-10">
+
+    <!-- Back link -->
+    <a href="{% url 'identity_list' %}" 
+       class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-blue-600 mb-6 transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        {% trans "Back to identities" %}
+    </a>
+
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="h-2 bg-red-500"></div>
+
+        <div class="p-8">
+
+            <!-- Warning icon -->
+            <div class="flex justify-center mb-6">
+                <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center">
+                    <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                    </svg>
+                </div>
+            </div>
+
+            <h1 class="text-xl font-bold text-gray-900 text-center mb-2">
+                {% trans "Delete identity?" %}
+            </h1>
+
+            <p class="text-sm text-gray-500 text-center mb-6">
+                
+                {% blocktrans with value=identity.value context=identity.context %}
+                You are about to permanently delete {{ value }} from your {{ context }} context.
+                This cannot be undone.
+                {% endblocktrans %}
+            </p>
+
+            <!-- Identity summary card -->
+            <div class="bg-gray-50 rounded-xl px-4 py-3 mb-6 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-sm">
+                    {{ identity.value|first|upper }}
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-800 text-sm">
+                        {{ identity.value }}
+                    </p>
+                    <p class="text-xs text-gray-400">
+                        {{ identity.context }} · {{ identity.visibility }}
+                    </p>
+                </div>
+            </div>
+
+            <form method="post" class="flex gap-3">
+                {% csrf_token %}
+
+                <button type="submit"
+                    class="flex-1 bg-red-600 hover:bg-red-700 text-white font-semibold py-2.5 px-4 rounded-lg transition text-sm">
+                    {% trans "Yes, delete it" %}
+                </button>
+
+                <a href="{% url 'identity_list' %}"
+                    class="flex-1 text-center border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold py-2.5 px-4 rounded-lg transition text-sm">
+                    {% trans "Cancel" %}
+                </a>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
