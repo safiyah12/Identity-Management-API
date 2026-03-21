@@ -22,15 +22,15 @@ class ClientSystemRegistrationForm(forms.ModelForm):
             "contact_email": forms.EmailInput(),
         }
 
-    def clean_name(self):
-        name = self.cleaned_data.get("name")
-        if not name:
-            raise forms.ValidationError("System name cannot be empty.")
-        if len(name) < 3:
-            raise forms.ValidationError(
-                "System name must be at least 3 characters long."
-            )
-        return name
+        def clean_name(self):
+            name = self.cleaned_data.get("name")
+            if not name:
+                raise forms.ValidationError("System name cannot be empty.")
+            if len(name) < 3:
+                raise forms.ValidationError(
+                    "System name must be at least 3 characters long."
+                )
+            return name
 
     def clean_contact_email(self):
         email = self.cleaned_data.get("contact_email")

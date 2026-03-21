@@ -673,46 +673,46 @@ def manage_access(request, name_id):
             grantee_client_id = request.POST.get("grantee_client_id")
             identifier_value = request.POST.get("identifier_value", "").strip()
 
-        if not grantee_client_id:
-            return render(
-                request,
-                "manage_access.html",
-                {
-                    "name": name,
-                    "grants": grants,
-                    "all_users": all_users,
-                    "all_clients": all_clients,
-                    "error": "Please select a client system.",
-                },
+            if not grantee_client_id:
+                return render(
+                    request,
+                    "manage_access.html",
+                    {
+                        "name": name,
+                        "grants": grants,
+                        "all_users": all_users,
+                        "all_clients": all_clients,
+                        "error": "Please select a client system.",
+                    },
+                )
+
+            if not identifier_value:
+                return render(
+                    request,
+                    "manage_access.html",
+                    {
+                        "name": name,
+                        "grants": grants,
+                        "all_users": all_users,
+                        "all_clients": all_clients,
+                        "error": "Please provide your identifier value for this system.",
+                    },
+                )
+
+            grantee_client = get_object_or_404(ClientSystem, client_id=grantee_client_id)
+
+            # Grant access
+            IdentityAccess.objects.get_or_create(
+                name=name, grantee_client=grantee_client, grantee_type="client"
             )
 
-        if not identifier_value:
-            return render(
-                request,
-                "manage_access.html",
-                {
-                    "name": name,
-                    "grants": grants,
-                    "all_users": all_users,
-                    "all_clients": all_clients,
-                    "error": "Please provide your identifier value for this system.",
-                },
+            # Create ExternalIdentifier so client can look up this user
+            ExternalIdentifier.objects.get_or_create(
+                user=request.user,
+                client=grantee_client,
+                provider=grantee_client.client_type,
+                defaults={"identifier_value": identifier_value},
             )
-
-        grantee_client = get_object_or_404(ClientSystem, client_id=grantee_client_id)
-
-        # Grant access
-        IdentityAccess.objects.get_or_create(
-            name=name, grantee_client=grantee_client, grantee_type="client"
-        )
-
-        # Create ExternalIdentifier so client can look up this user
-        ExternalIdentifier.objects.get_or_create(
-            user=request.user,
-            client=grantee_client,
-            provider=grantee_client.client_type,
-            defaults={"identifier_value": identifier_value},
-        )
 
         return redirect("manage_access", name_id=name_id)
     return render(

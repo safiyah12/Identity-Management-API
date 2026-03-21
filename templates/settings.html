@@ -1,115 +1,143 @@
 {% extends "base.html" %}
 {% load i18n %}
+
 {% block title %}{% trans "Account Settings" %}{% endblock %}
 
 {% block content %}
-<div class="min-h-screen bg-slate-50 dark:bg-slate-900">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+* { font-family: 'DM Sans', sans-serif; }
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in { animation: fadeSlideIn 0.4s ease forwards; }
+.delay-1 { animation-delay: 0.05s; opacity: 0; }
+.delay-2 { animation-delay: 0.1s; opacity: 0; }
+.delay-3 { animation-delay: 0.15s; opacity: 0; }
+</style>
 
-  <div class="bg-white dark:bg-slate-800 border-b border-slate-100 dark:border-slate-700 px-8 py-6">
-    <div class="max-w-2xl mx-auto flex items-center justify-between">
+<!-- Hero banner matching dashboard -->
+<div class="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 px-4 sm:px-8 py-8 sm:py-10">
+  <div class="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3"></div>
+  <div class="absolute bottom-0 left-1/3 w-40 sm:w-64 h-40 sm:h-64 bg-white/5 rounded-full translate-y-1/2"></div>
+  <div class="absolute top-1/2 right-1/4 w-20 sm:w-32 h-20 sm:h-32 bg-indigo-400/10 dark:bg-blue-400/10 rounded-full"></div>
+
+  <div class="max-w-2xl mx-auto relative">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
       <div>
-        <h1 class="text-xl font-semibold text-slate-800 dark:text-white tracking-tight">{% trans "Account Settings" %}</h1>
-        <p class="text-sm text-slate-400 dark:text-slate-500 mt-0.5">{% trans "Manage your profile and preferences" %}</p>
+        <p class="text-blue-200 dark:text-slate-500 text-xs font-medium uppercase tracking-widest mb-2">{% trans "Account" %}</p>
+        <h1 class="text-2xl sm:text-3xl font-light text-white tracking-tight">
+          <span class="font-semibold">{% trans "Settings" %}</span>
+        </h1>
+        <p class="text-blue-200/70 dark:text-slate-500 text-sm mt-1.5">{% trans "Manage your profile and preferences" %}</p>
       </div>
-      <button onclick="enableEdit()" id="editBtn" class="text-sm bg-slate-800 dark:bg-slate-600 hover:bg-black dark:hover:bg-slate-500 text-white font-medium px-4 py-2 rounded-lg transition">
+      <button onclick="enableEdit()" id="editBtn"
+        class="flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 text-white text-xs sm:text-sm font-medium px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition self-start sm:self-auto">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+        </svg>
         {% trans "Edit Profile" %}
       </button>
     </div>
   </div>
+</div>
 
-  <div class="max-w-2xl mx-auto px-8 py-8 space-y-5">
+<div class="max-w-2xl mx-auto px-4 sm:px-8 -mt-4 pb-12 space-y-4 sm:space-y-5">
 
-    <!-- Profile card -->
-    <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 overflow-hidden">
-      <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-700">
-        <h2 class="text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">{% trans "Profile Information" %}</h2>
-      </div>
-      <form method="post" id="profileForm" class="p-6 grid grid-cols-2 gap-5">
-        {% csrf_token %}
-
-        <div>
-          <label class="block text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wide mb-1.5">{% trans "Username" %}</label>
-          <input type="text" name="username" value="{{ user.username }}" disabled
-            class="form-input w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-lg text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-        </div>
-
-        <div>
-          <label class="block text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wide mb-1.5">{% trans "Legal Name" %}</label>
-          <input type="text" name="legal_name" value="{{ user.legal_name }}" disabled
-            class="form-input w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-lg text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-        </div>
-
-        <div>
-          <label class="block text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wide mb-1.5">{% trans "Email" %}</label>
-          <input type="email" name="email" value="{{ user.email }}" disabled
-            class="form-input w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-lg text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-        </div>
-
-        <div>
-          <label class="block text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wide mb-1.5">{% trans "Gender" %}</label>
-          <input type="text" name="gender" value="{{ user.gender|default:'' }}" disabled
-            class="form-input w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-lg text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-        </div>
-
-        <div>
-          <label class="block text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wide mb-1.5">{% trans "Date of Birth" %}</label>
-          <input type="date" name="date_of_birth" value="{{ user.date_of_birth|date:'Y-m-d'|default:'' }}" disabled
-            class="form-input w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-lg text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-        </div>
-
-        <div>
-          <label class="block text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wide mb-1.5">{% trans "Role" %}</label>
-          <input type="text" value="{{ user.role }}" disabled
-            class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-lg text-sm text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700"/>
-        </div>
-
-        {% if messages %}
-        <div class="col-span-2">
-          {% for message in messages %}
-          <p class="text-sm {% if message.tags == 'error' %}text-red-500{% else %}text-green-600{% endif %}">{{ message }}</p>
-          {% endfor %}
-        </div>
-        {% endif %}
-
-        <div class="col-span-2 hidden pt-2 flex gap-3" id="saveActions">
-          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition">{% trans "Save Changes" %}</button>
-          <button type="button" onclick="cancelEdit()" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 text-sm font-medium px-5 py-2.5 rounded-lg transition">{% trans "Cancel" %}</button>
-        </div>
-      </form>
+  <!-- Profile card -->
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 overflow-hidden shadow-lg shadow-blue-900/5 dark:shadow-none animate-in delay-1">
+    <div class="px-5 sm:px-6 py-4 border-b border-gray-100 dark:border-slate-700 flex items-center gap-2">
+      <div class="w-1.5 h-5 bg-blue-600 rounded-full"></div>
+      <h2 class="text-sm font-semibold text-gray-800 dark:text-white tracking-tight">{% trans "Profile Information" %}</h2>
     </div>
+    <form method="post" id="profileForm" class="p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+      {% csrf_token %}
 
-    <!-- Appearance card -->
-    <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 overflow-hidden">
-      <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-700">
-        <h2 class="text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">{% trans "Appearance" %}</h2>
+      <div>
+        <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">{% trans "Username" %}</label>
+        <input type="text" name="username" value="{{ user.username }}" disabled
+          class="form-input w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-xl text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500"/>
       </div>
-      <div class="p-6 flex items-center justify-between">
-        <div>
-          <p class="text-sm font-medium text-slate-800 dark:text-white">{% trans "Theme" %}</p>
-          <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{% trans "Switch between light and dark mode" %}</p>
-        </div>
-        <button onclick="toggleTheme()" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition text-sm font-medium text-slate-700 dark:text-slate-300">
-          <span id="theme-icon">🌙</span>
-          <span id="theme-label">{% trans "Dark mode" %}</span>
-        </button>
-      </div>
-    </div>
 
-    <!-- Sign out card -->
-    <div class="bg-white dark:bg-slate-800 rounded-xl border border-red-100 dark:border-red-900/50 overflow-hidden">
-      <div class="px-6 py-4 border-b border-red-100 dark:border-red-900/50">
-        <h2 class="text-sm font-semibold text-red-500 uppercase tracking-wide">{% trans "Danger Zone" %}</h2>
+      <div>
+        <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">{% trans "Legal Name" %}</label>
+        <input type="text" name="legal_name" value="{{ user.legal_name }}" disabled
+          class="form-input w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-xl text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500"/>
       </div>
-      <div class="p-6 flex items-center justify-between">
-        <div>
-          <p class="text-sm font-medium text-slate-800 dark:text-white">{% trans "Sign out" %}</p>
-          <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{% trans "End your current session securely" %}</p>
-        </div>
-        <a href="{% url 'logout' %}" class="text-sm bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-lg transition">{% trans "Logout" %}</a>
-      </div>
-    </div>
 
+      <div>
+        <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">{% trans "Email" %}</label>
+        <input type="email" name="email" value="{{ user.email }}" disabled
+          class="form-input w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-xl text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">{% trans "Gender" %}</label>
+        <input type="text" name="gender" value="{{ user.gender|default:'' }}" disabled
+          class="form-input w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-xl text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">{% trans "Date of Birth" %}</label>
+        <input type="date" name="date_of_birth" value="{{ user.date_of_birth|date:'Y-m-d'|default:'' }}" disabled
+          class="form-input w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-xl text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1.5">{% trans "Role" %}</label>
+        <input type="text" value="{{ user.role }}" disabled
+          class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-600 rounded-xl text-sm text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700"/>
+      </div>
+
+      {% if messages %}
+      <div class="col-span-2">
+        {% for message in messages %}
+        <p class="text-sm {% if message.tags == 'error' %}text-red-500{% else %}text-emerald-600 dark:text-emerald-400{% endif %}">{{ message }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="col-span-1 sm:col-span-2 hidden pt-2 flex gap-3" id="saveActions">
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition">{% trans "Save Changes" %}</button>
+        <button type="button" onclick="cancelEdit()" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 text-sm font-medium px-5 py-2.5 rounded-xl transition">{% trans "Cancel" %}</button>
+      </div>
+    </form>
   </div>
+
+  <!-- Appearance card -->
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 overflow-hidden shadow-lg shadow-blue-900/5 dark:shadow-none animate-in delay-2">
+    <div class="px-5 sm:px-6 py-4 border-b border-gray-100 dark:border-slate-700 flex items-center gap-2">
+      <div class="w-1.5 h-5 bg-indigo-500 rounded-full"></div>
+      <h2 class="text-sm font-semibold text-gray-800 dark:text-white tracking-tight">{% trans "Appearance" %}</h2>
+    </div>
+    <div class="p-5 sm:p-6 flex items-center justify-between">
+      <div>
+        <p class="text-sm font-medium text-slate-800 dark:text-white">{% trans "Theme" %}</p>
+        <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{% trans "Switch between light and dark mode" %}</p>
+      </div>
+      <button onclick="toggleTheme()" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition text-sm font-medium text-slate-700 dark:text-slate-300">
+        <span id="theme-icon">🌙</span>
+        <span id="theme-label">{% trans "Dark mode" %}</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Danger zone -->
+  <div class="bg-white dark:bg-slate-800 rounded-2xl border border-red-100 dark:border-red-900/50 overflow-hidden shadow-lg shadow-blue-900/5 dark:shadow-none animate-in delay-3">
+    <div class="px-5 sm:px-6 py-4 border-b border-red-100 dark:border-red-900/50 flex items-center gap-2">
+      <div class="w-1.5 h-5 bg-red-500 rounded-full"></div>
+      <h2 class="text-sm font-semibold text-red-500 tracking-tight">{% trans "Danger Zone" %}</h2>
+    </div>
+    <div class="p-5 sm:p-6 flex items-center justify-between">
+      <div>
+        <p class="text-sm font-medium text-slate-800 dark:text-white">{% trans "Sign out" %}</p>
+        <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{% trans "End your current session securely" %}</p>
+      </div>
+      <a href="{% url 'logout' %}" class="text-sm bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-xl transition">{% trans "Logout" %}</a>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -124,11 +152,7 @@ function enableEdit() {
   document.getElementById('saveActions').classList.remove('hidden');
   document.getElementById('editBtn').classList.add('hidden');
 }
-
-function cancelEdit() {
-  location.reload();
-}
-
+function cancelEdit() { location.reload(); }
 window.onload = function() {
   const icon = document.getElementById('theme-icon');
   const label = document.getElementById('theme-label');

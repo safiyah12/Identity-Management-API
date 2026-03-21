@@ -15,7 +15,7 @@ class User(AbstractUser):
     def __str__(self):
         return self.legal_name
 
-
+# 2. Name
 class Name(models.Model):
     CONTEXT_CHOICES = [
         ("social", "Social"),
@@ -41,7 +41,7 @@ class Name(models.Model):
     def __str__(self):
         return f"{self.value} ({self.context})"
 
-
+# 3. ClientSystem
 class ClientSystem(models.Model):
     PERMISSION_CHOICES = [
         ("read", "Read"),
@@ -81,7 +81,7 @@ class ClientSystem(models.Model):
         return self.name
 
 
-# 3. ExternalIdentifier
+# 4. ExternalIdentifier
 class ExternalIdentifier(models.Model):
     external_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(
@@ -97,7 +97,7 @@ class ExternalIdentifier(models.Model):
         return f"{self.provider}: {self.identifier_value}"
 
 
-# 4. Profile
+# 5. Profile
 class Profile(models.Model):
     profile_id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
@@ -108,7 +108,7 @@ class Profile(models.Model):
     def __str__(self):
         return f"Profile of {self.user.legal_name}"
 
-# 5. AuditLog
+# 6. AuditLog
 class AuditLog(models.Model):
     ACTION_CHOICES = [
         ("USER_REGISTER", "User Register"),
@@ -153,7 +153,7 @@ class AuditLog(models.Model):
     def __str__(self):
         return f"{self.action} | {self.status} | {self.timestamp}"
 
-# 6. IdentityAccess
+# 7. IdentityAccess
 class IdentityAccess(models.Model):
     GRANTEE_TYPE_CHOICES = [
         ("user", "User"),
