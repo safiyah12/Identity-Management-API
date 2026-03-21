@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 ```sql
 CREATE DATABASE identity_api_db;
-CREATE USER identity_user WITH PASSWORD 'parrot231';
+CREATE USER postgres WITH PASSWORD 'parrot231';
 GRANT ALL PRIVILEGES ON DATABASE identity_api_db TO identity_user;
 ```
 
