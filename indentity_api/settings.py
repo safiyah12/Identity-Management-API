@@ -88,7 +88,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "identity_api_db",
         "USER": "postgres",
-        "PASSWORD": "bismillah",
+        "PASSWORD": "parrot231",
         "HOST": "localhost",
         "PORT": "5432",
     }
