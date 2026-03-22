@@ -12,7 +12,8 @@ import secrets
 from django.shortcuts import get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
 
-#landing page
+
+# landing page
 def home(request):
     return render(request, "landing.html")
 
@@ -233,7 +234,9 @@ def dashboard_user(request):
         },
     )
 
+
 # Client System Views
+
 
 def register_client(request):
     if request.method == "POST":
@@ -591,46 +594,39 @@ from .models import Name, IdentityAccess
 
 @login_required
 def search_identities(request):
-    query = request.GET.get("q", "")
+    query = request.GET.get("q", "").strip()
     context_filter = request.GET.get("context", "")
-    results = []
+
+    own_names = Name.objects.filter(user=request.user)
+    other_public = Name.objects.filter(visibility="public").exclude(user=request.user)
+
+    granted_ids = IdentityAccess.objects.filter(grantee_user=request.user).values_list(
+        "name_id", flat=True
+    )
+    other_restricted = Name.objects.filter(
+        visibility="restricted", name_id__in=granted_ids
+    ).exclude(user=request.user)
 
     if query:
-        # Own identities — always show all
-        own_results = Name.objects.filter(
-            user=request.user,
-            value__icontains=query,
-        )
+        own_names = own_names.filter(value__icontains=query)
+        other_public = other_public.filter(value__icontains=query)
+        other_restricted = other_restricted.filter(value__icontains=query)
 
-        # Others — public only (no login required to see these)
-        public_results = Name.objects.filter(
-            value__icontains=query,
-            visibility="public",
-        ).exclude(user=request.user)
+    if context_filter:
+        own_names = own_names.filter(context=context_filter)
+        other_public = other_public.filter(context=context_filter)
+        other_restricted = other_restricted.filter(context=context_filter)
 
-        # Others — restricted only if user has been granted access
-        granted_name_ids = IdentityAccess.objects.filter(
-            grantee_user=request.user
-        ).values_list("name_id", flat=True)
-
-        restricted_results = Name.objects.filter(
-            name_id__in=granted_name_ids,
-            value__icontains=query,
-            visibility="restricted",
-        ).exclude(user=request.user)
-
-        results = list(chain(own_results, public_results, restricted_results))
-
-        if context_filter:
-            results = [r for r in results if r.context == context_filter]
+    results = list(own_names) + list(other_public) + list(other_restricted)
 
     return render(
         request,
         "search.html",
         {
+            "results": results,
             "query": query,
             "context_filter": context_filter,
-            "results": results,
+            "context_choices": Name.CONTEXT_CHOICES,
         },
     )
 
@@ -699,7 +695,9 @@ def manage_access(request, name_id):
                     },
                 )
 
-            grantee_client = get_object_or_404(ClientSystem, client_id=grantee_client_id)
+            grantee_client = get_object_or_404(
+                ClientSystem, client_id=grantee_client_id
+            )
 
             # Grant access
             IdentityAccess.objects.get_or_create(
